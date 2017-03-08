@@ -1,5 +1,5 @@
 FROM fluent/fluentd:v0.14
-MAINTAINER devops@irow.io
+MAINTAINER devops@leonisand.co
 
 USER root
 
