@@ -38,3 +38,9 @@ docker run -it --rm --env-file dot.env leonisandco/rds-mysql-slowlog-monitor:lat
 # run as a daemon
 docker run -d --env-file dot.env leonisandco/rds-mysql-slowlog-monitor:latest
 ```
+
+# WARN
+
+このdocker imageを使うと、RDS(mysql)上のslow_logテーブルの中身が定期的にクリアされて無くなります。
+
+**slow_logのデータを保存したい場合は、どこかのデータストアに保存する/fluent.confを調整してbackupするようにするなどが必要**です。
