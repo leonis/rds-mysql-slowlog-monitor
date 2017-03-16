@@ -16,7 +16,7 @@ This repository provides a docker image which monitors the slow query logs in th
 
 ### RDS(mysql)
 
-slow query logが出力されるように設定を調整してください。
+slow query logが出力されるようにRDSのparameter groupの設定値を調整してください。
 
 ### docker image
 
