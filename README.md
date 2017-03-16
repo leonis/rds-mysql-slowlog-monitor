@@ -39,8 +39,20 @@ docker run -it --rm --env-file dot.env leonisandco/rds-mysql-slowlog-monitor:lat
 docker run -d --env-file dot.env leonisandco/rds-mysql-slowlog-monitor:latest
 ```
 
-# WARN
+# Q&A
 
-このdocker imageを使うと、RDS(mysql)上のslow_logテーブルの中身が定期的にクリアされて無くなります。
+## 対象RDSのslow\_logテーブルからログデータが無くなる?
+
+このdocker imageを使うと、RDS(mysql)上のslow\_logテーブルの中身が定期的にクリアされて無くなります。
 
 **slow_logのデータを保存したい場合は、どこかのデータストアに保存する/fluent.confを調整してbackupするようにするなどが必要**です。
+
+=> [fluent-plugin-rds-slowlogのOverview](https://github.com/kenjiskywalker/fluent-plugin-rds-slowlog#overview)
+
+## 環境変数にslackのchannel名は不要では?
+
+=> [fluent-plugin-slackのissue 19](https://github.com/sowawa/fluent-plugin-slack/issues/19)
+
+# License
+
+MIT
