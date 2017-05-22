@@ -49,10 +49,6 @@ docker run -d --env-file dot.env leonisandco/rds-mysql-slowlog-monitor:latest
 
 => [fluent-plugin-rds-slowlogのOverview](https://github.com/kenjiskywalker/fluent-plugin-rds-slowlog#overview)
 
-## 環境変数にslackのchannel名は不要では?
-
-=> [fluent-plugin-slackのissue 19](https://github.com/sowawa/fluent-plugin-slack/issues/19)
-
 # License
 
 MIT
