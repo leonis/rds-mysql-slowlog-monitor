@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v0.14
+FROM fluent/fluentd:v0.14-onbuild
 MAINTAINER devops@leonisand.co
 
 USER root
@@ -10,16 +10,14 @@ RUN apk add --no-cache --update --virtual .build-deps \
         percona-toolkit@testing mariadb-dev sudo \
 
  # cutomize following instruction as you wish
- && sudo -u fluent gem install \
+ && sudo gem install \
         fluent-plugin-rds-slowlog \
         fluent-plugin-mysql_explain \
         fluent-plugin-sql_fingerprint \
         fluent-plugin-slack \
- && sudo -u fluent gem sources --clear-all \
+ && sudo gem sources --clear-all \
  && apk del .build-deps \
- && rm -rf /home/fluent/.gem/ruby/2.3.0/cache/*.gem
+ && rm -rf /var/cache/apk/* /home/fluent/.gem/ruby/2.3.0/cache/*.gem
 
 COPY ./fluent.conf /fluentd/etc/slowlog-monitor.conf
 ENV FLUENTD_CONF="slowlog-monitor.conf"
-
-USER fluent
